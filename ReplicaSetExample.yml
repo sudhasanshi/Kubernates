@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: myrs
+  labels:
+    app: jenkins
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sudha
+  template:
+    metadata:
+      name: jenkins
+      labels:
+        app: sudha
+    spec:
+      containers:
+        - name: myjenkins
+          image: jenkins/jenkins
