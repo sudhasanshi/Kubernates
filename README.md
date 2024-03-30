@@ -24,3 +24,19 @@ We can run pod on particular node(refer file nodeselector.yml)
          reference file-nodeaffinityhardrulerequiredNotIn.yml
          ![image](https://github.com/sudhasanshi/Kubernates/assets/35460293/ee147a47-ce1d-4821-9682-27fe0d06e452)
    b. podaffinity
+      1. podaffinity (In operator)
+         reference file -podaffinityIn.yml
+         ![image](https://github.com/sudhasanshi/Kubernates/assets/35460293/fd0e8deb-2ab2-4ea1-8e17-237b756b858a)
+
+      2. podaffinity (NotIn operator)
+         reference file -podaffinityNotIn.yml
+         ![image](https://github.com/sudhasanshi/Kubernates/assets/35460293/c7c26c0b-369b-4141-9a6c-b10ac2560027)
+
+      4. podantiaffinity
+         reference file -podantiaffinityIn.yml
+         ![image](https://github.com/sudhasanshi/Kubernates/assets/35460293/4f7eff1d-4c1b-4dcd-aab2-a8c7e673e29f)
+
+      5. podantiaffinity
+         reference file -podantiaffinityNotIn.yml
+         ![image](https://github.com/sudhasanshi/Kubernates/assets/35460293/13c2a745-6563-4ba8-a5c5-421aa231d7db)
+
