@@ -39,4 +39,49 @@ We can run pod on particular node(refer file nodeselector.yml)
       5. podantiaffinity
          reference file -podantiaffinityNotIn.yml
          ![image](https://github.com/sudhasanshi/Kubernates/assets/35460293/13c2a745-6563-4ba8-a5c5-421aa231d7db)
+3. taint
+   a. taint with normal deployment(reference file taintexample.yml)
+     - first we have to taint the node using below command
+        kubectl taint node node-name(ip-10-0-0-120.ap-south-1.compute.internal) color=red:NoSchedule
+     - that means pods will not run on that node. you can see in screenshot pods are running on other node
+     - pods will run on others nodes except that node
+     - to check node tainted or not use below command
+        kubectl describe node node-name
+       ![image](https://github.com/sudhasanshi/Kubernates/assets/35460293/1b04fbb4-5ef6-4773-a5dc-2f23794a65d1)
 
+  b. taint with NodeSelector deployment file(reference file taintnodeselector.yml)
+   - pods will go into pending state because we mentioned nodeselector as worker1 in deployment file and we made same node as tainted
+     ![image](https://github.com/sudhasanshi/Kubernates/assets/35460293/eed668b9-8f40-43eb-ad49-22f591af0033)
+     
+ 4. toleration
+     even though node is tainted we can run pods on that node by specifing toleration details in deployment file so that pods will run on that node
+    - reference file (tolerationexample.yml)
+
+
+ 5.   ResourceQuota with namespace
+    - referenc directory resourceQuota  
+    
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
