@@ -1,3 +1,5 @@
+eks -cluster setup llink:https://medium.com/@sanoj.sudo/how-to-create-aws-eks-cluster-step-by-step-a97420ede922
+
 1.Nodeselector
 We can set labels to nodes as shown below 
 
