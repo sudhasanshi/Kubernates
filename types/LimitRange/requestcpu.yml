@@ -10,3 +10,5 @@ spec:
     resources:
       requests:
         cpu: "0.5"
+
+#default limits we get, when we are not mentioning limits and requesting for it
