@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: tomcat-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+  - http:
+      paths:
+      - path: /hello-world-war-1.0.0
+        pathType: Prefix
+        backend:
+          service:
+            name: tomcat-node
+            port:
+              number: 8085
