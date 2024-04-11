@@ -4,3 +4,30 @@ Step3: cd nginx-ingress-controller/manifests/
 Step4: kubectl apply -f .
 Step5: Check the pods and svc in the ingress-nginx namespace
 Step6: Check Loadbalancer svc created
+
+for each application we can mention path
+1. jenkins 
+   find file about jenkins
+    http://a7a27810bdb62474b95cfaf0aeaee7eb-2060807531.ap-south-1.elb.amazonaws.com/jenkins( loadbalancer url /jenkins)
+2. tomcat
+   find file about jenkins
+   i have clone https://github.com/efsavage/hello-world-war.git
+   installed maven
+   mvn install
+   it will generate war file in target folder 
+   copy that war file to tomcat pod(kubectl cp hello-world-war/target/hello-world-war-1.0.0.war my-tomcat-69cd4d8df6-pkbsv:/usr/local/tomcat/webapps)
+   in path provide (/hello-world-war-1.0.0)
+    http://a7a27810bdb62474b95cfaf0aeaee7eb-2060807531.ap-south-1.elb.amazonaws.com/hello-world-war-1.0.0/
+3. grafana
+   find file about grafana
+   first create pod - go inside pod (kubetl exec -it pod-name -- sh) -goto folder conf-you will find defaults.ini file
+   copy defaults.ini to host (kubectl cp pod-name:/usr/share/grafana/conf/defaults.ini defaults.ini(create this file before executing cmd)
+   modify defaults.ini file with below
+   root_url=root_url = %(protocol)s://%(domain)s:%(http_port)s/grafana
+   serve_from_sub_path = true
+   create config map using command kubectl create configmap my-config --from-file=defaults.ini
+   add volumes in deployment file
+    http://a7a27810bdb62474b95cfaf0aeaee7eb-2060807531.ap-south-1.elb.amazonaws.com/grafana
+
+   
+
