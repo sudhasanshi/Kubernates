@@ -1,0 +1,24 @@
+helm is package manager for k8s
+installation steps
+https://helm.sh/docs/intro/install/
+
+helm create jenkins
+
+helm template jenkins ./jenkins
+
+helm install jenkins ./jenkins --dry-run
+
+helm install jenkins ./jenkins
+
+helm install jenkins ./jenkins --dry-run
+
+helm install --create-namespace jenkins ./jenkins --namespace jenkins
+
+helm uninstall jenkins
+
+helm upgrade jenkins ./jenkins --set replicas=4
+
+
+important links
+1. https://github.com/hmcts/chart-java
+2. https://github.com/stakater-charts/java-app
