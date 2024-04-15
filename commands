@@ -7,9 +7,17 @@ Commands for getting resources:
 6. kubectl get namespace(ns)
 7. kubectl get pods -o wide 
 8. kubectl get endpoints
+9. kubectl get ingress
+10. kubectl get daemonset daemonset-name
+11. kubectl get statefulset statefulset-name
+12. kubectl get configmap configmap-name
+13. kubectl get secret secret-name
+14. kubectl get job job-name
+15. kubectl get cronjob cronjob-name
 
 curl request to Kubernetes cluster
 1. curl -v clusterIp:port
+2. kubectl api-resources
 
 Commands for describing resources:
 1. kubectl describe pods pod-name 
@@ -17,6 +25,13 @@ Commands for describing resources:
 3. kubectl describe service service-name
 4. kubectl describe replicaset replicaset-name
 5. kubectl describe deployment deployment-name
+6. kubectl describe ingress ingress-name
+7. kubectl describe daemonset daemonset-name
+8. kubectl describe statefulset statefulset-name
+9. kubectl describe configmap configmap-name
+10 kubectl describe secret secret-name
+11. kubectl describe job job-name
+12. kubectl describe cronjob cronjob-name
 
 Scaling commands:
 1. kubectl scale --replicas=3 -f manifest.yaml 
@@ -26,7 +41,7 @@ Commands for creating resources:
 1. kubectl apply -f manifest.yml
 2. kubectl create -f manifest.yml
 3. kubectl run --image image-name my-image
-4. kubectl exec -it pod-name --bash
+4. kubectl exec -it pod-name -- bash
 
 Commands for deleting resources:
 1. kubectl delete -f manifest.yml
@@ -35,6 +50,13 @@ Commands for deleting resources:
 4. kubectl delete deployment deployment-name
 5. kubectl delete svc service-name
 6. kubectl delete namespace namespace-name
+7. kubectl delete ingress ingress-name
+8. kubectl delete daemonset daemonset-name
+9. kubectl delete statefulset statefulset-name
+10. kubectl delete configmap configmap-name
+11. kubectl delete secret secret-name
+12. kubectl delete job job-name
+13. kubectl delete cronjob cronjob-name
 
 Commands for managing node attributes:
 1. kubectl taint node node-name color=red:NoSchedule
@@ -48,3 +70,9 @@ Commands for working with resources in a specific namespace:
 1. kubectl get resourcequota -n namespace-name
 2. kubectl get deployment -n namespace-name
 3. kubectl get pod -n namespace-name
+
+
+1. kubectl create configmap configmap-name --from-file=filename
+2. kubectl create secret generic secret-name --from-file=filename
+3. kubectl create job job-name --image=image-name
+4. 
