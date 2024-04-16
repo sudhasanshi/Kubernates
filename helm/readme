@@ -22,3 +22,39 @@ helm upgrade jenkins ./jenkins --set replicas=4
 important links
 1. https://github.com/hmcts/chart-java
 2. https://github.com/stakater-charts/java-app
+
+1. What is Helm
+Helm is a package manager for Kubernetes that simplifies the deployment and management of applications on Kubernetes clusters.
+It helps to automate the installation, upgrading, and removal of applications by providing templating and packaging mechanisms for Kubernetes manifests.
+
+2.What is a Helm chart, and how is it structured?
+A Helm chart is a package containing pre-configured Kubernetes manifests that describe an application's resources and dependencies. 
+It consists of a directory structure containing files such as Chart.yaml (metadata), values.yaml (configuration values), 
+templates (Kubernetes manifests with Helm templating), and optionally, helper files and scripts
+
+3.What is the purpose of Helm values files?
+Helm values files (values.yaml) contain configuration values that override the default settings defined in the Helm chart templates. 
+They allow users to customize the behavior of the application deployed with Helm without modifying the chart itself.
+
+4.what is the difference between helm 2 and helm 3?
+1.Removal of Tiller -In Helm 2, Tiller (the server-side component) was responsible for managing releases. However, in Helm 3,
+Tiller has been removed entirely. Now, Helm operates directly with Kubernetes APIs.
+2.Requirements.yaml Moved to Chart.yaml -In Helm 2, dependencies were defined in requirements.yaml. In Helm 3, dependencies are specified directly in Chart.yaml.
+3.Changes in Chart apiVersion -Helm 3 uses apiVersion: v2 for charts, while Helm 2 used apiVersion: v1.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
