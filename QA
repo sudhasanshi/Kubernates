@@ -1,0 +1,23 @@
+1. cluster objects
+sc
+pv
+node
+clusterrole
+clusterrolebining
+
+2. write code to implement blue green deployment strategy using deployment object and roleback in case of failure and explain process
+Yes, we can implement a Blue-Green deployment strategy using Kubernetes Deployment objects. Blue-Green deployment involves maintaining two identical environments, one serving as the active environment (Blue) and the other as the idle environment (Green).
+Here's how you can achieve this using Kubernetes:
+Deploy Two Identical Versions:
+Initially, deploy two identical versions of your application, let's call them blue and green. These will represent the Blue and Green environments.
+Service Configuration:
+Set up a Kubernetes Service to route traffic to one of the environments. Initially, all traffic will be routed to the blue environment.
+Testing and Verification:
+Test the green environment thoroughly to ensure it's functioning correctly and meets your requirements.
+Switching Traffic:
+Once the green environment is verified, update the Service configuration to route traffic to the green environment instead of blue. 
+This switch can be done instantly in Kubernetes by updating the Service's selector to target the green Deployment.
+Rollback (if necessary):
+If any issues arise after the switch, you can quickly roll back to the blue environment by reverting the Service configuration to target the blue Deployment.
+
+3.
