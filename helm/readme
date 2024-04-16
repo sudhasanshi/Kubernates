@@ -21,6 +21,7 @@ helm upgrade jenkins ./jenkins --set replicas=4
 helm getl all
 helm history revision-name(application-name)
 helm roleback release revision-name
+helm package revision-name
 
 
 important links
