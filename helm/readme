@@ -18,6 +18,10 @@ helm uninstall jenkins
 
 helm upgrade jenkins ./jenkins --set replicas=4
 
+helm getl all
+helm history revision-name(application-name)
+helm roleback release revision-name
+
 
 important links
 1. https://github.com/hmcts/chart-java
