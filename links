@@ -3,4 +3,8 @@ https://github.com/kubernetes-sigs/aws-ebs-csi-driver/blob/master/examples/kuber
 https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html
 ebs-setup
 https://blog.cloudtechner.com/setting-up-efs-as-persistent-volume-for-aws-eks-d16f5f46951e
+https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler/cloudprovider/aws
+https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/examples/cluster-autoscaler-one-asg.yaml
+https://www.kubecost.com/kubernetes-autoscaling/kubernetes-cluster-autoscaler
+
 
