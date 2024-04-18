@@ -7,3 +7,12 @@ https://prometheus-community.github.io/helm-charts
 https://semaphoreci.com/blog/prometheus-grafana-kubernetes-helm
 https://medium.com/rahasak/monitor-kubernetes-clusters-with-prometheus-and-grafana-3ebecc941025#:~:text=This%20PromQL%20query%20is%20used,the%20nodes%20that%20are%20true%20.
 kubectl get secret --namespace default grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+
+ARGOCD
+It's GitOps continuous delivery tool for Kubernetes, It helps automate the deployment of applications and configurations to Kubernetes clusters.
+1. Continuous Delivery:  Argo CD continuously monitors the Git repositories for changes to application manifests and automatically syncs the desired state with the actual state in the Kubernetes cluster.
+    This ensures that the cluster is always in sync with the desired configuration.
+2. Application Management: Argo CD provides a user-friendly web interface and CLI for managing applications deployed to Kubernetes. 
+   Users can easily view the status of applications, roll back to previous versions, and perform other management tasks.
+3. Multi-Environment Support: Argo CD supports deploying applications to multiple Kubernetes clusters and environments, such as development, staging, and production.
+4. Rollback and Rollout Tracking: Argo CD tracks the history of application deployments and allows users to rollback to previous versions in case of issues.
