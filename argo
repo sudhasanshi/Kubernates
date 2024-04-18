@@ -4,3 +4,6 @@ helm install argocd argo/argo-cd
 kubectl get secret argocd-initial-admin-secret -oyaml
 kubectl get secret argocd-initial-admin-secret -ojson | jq -r .data.password | base64 -d
 https://prometheus-community.github.io/helm-charts
+https://semaphoreci.com/blog/prometheus-grafana-kubernetes-helm
+https://medium.com/rahasak/monitor-kubernetes-clusters-with-prometheus-and-grafana-3ebecc941025#:~:text=This%20PromQL%20query%20is%20used,the%20nodes%20that%20are%20true%20.
+kubectl get secret --namespace default grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
