@@ -1,0 +1,24 @@
+How to create helm?
+
+HELM- In simple term, helm is package manager in for k8s. helm is the k8s equivalent of yum or apt.
+Helm deploy charts, which we can think of as a packaged application. It is collection of all your versioned, pre-configured application resources which can be deployed as a one unit.
+Helm helps in three ways:
+Improves productivity.
+Reduces the complexity of deployment of microservices
+Enables the adoption of cloud native application.
+Helm chars are k8s yaml/manifest combined into a single package the can advantaged to k8s cluster
+
+Helm there are three concepts we are familiar with.
+Chart- a package of pre-configured k8s resources.
+Release- a specific instant of chart which has been deployed to the cluster using helm.
+Repository – a group of public charts which can be made available to others.
+
+How to create helm?
+Helm create [application name]
+Chart.yaml- this is where all information about the chat your packaging. So for example your version number/name of the application etc. this is where you put the details.
+Charts- this is where u store other charts that your charts depend on. You might be calling other chart need to functions properly.
+Template- this folder where u put actual manifest [yaml file] you are deploying the chat.
+Example – you might be deploying nginx deployment that needs a service, config map & secretes.
+You will have deployment yaml, service yaml, all in the template’s directory this will get their values from values .yaml file
+Values: - this is where you define all the values you want to inject into your templates.
+{{.Values.deploy_name}}
