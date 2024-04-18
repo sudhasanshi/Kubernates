@@ -1,0 +1,87 @@
+Pods:
+Pods are smallest objects which can be created in Kubernetes cluster.
+In terms of docker concepts, a pod is similar to a group of docker containers with shared namespace and shared file system volumes.
+YAML (yet another mark-up language) File: YAML is a human readable data serialization language. It is commonly used for configuration files and in applications where data is being stored or 
+Kubectl create -f filename
+Life cycle of k8s:
+Waiting: if the container is not neither in running or terminated state it is waiting.
+Running: the running status indicates the container is running without issues
+Terminated: the container in the terminated began execution and then either run to completion or fail for some reason.
+
+Namespaces:
+Namespace helps in creating a virtual cluster inside your Kubernetes cluster
+Namespace helps you isolate your resources between different teams. Allocate resources or apply quota of resources
+
+Advantages of namespace:
+Helps in easy management of applications of each environment
+Control multiple app with single name in a single cluster
+Cost effective
+
+Default k8s namespaces are.
+Default: adding an object to a cluster without providing a namespace will place it within the default namespace
+Kube-system: kube system namespace is used for k8s components managed by k8s
+Kube-public: kube public it is readable by everyone, but the namespace is reserved for system usage
+
+Publishing service:
+K8s service type allows you to specify what kind of service you want, the default is cluster IP
+Type values and their behaviours are:
+1.	 ClusterIP:  Exposes the service on a cluster internal IP. Using this value makes the service only reachable from within the cluster. This is the default service type.
+2.	NodePort: exposes the service on each nodes IP at a static port.
+A cluster IP service, to which the nodes port service routes are automatically created.
+3.	LoadBalancer: exposes the service externally using a cloud providers load balancer.
+Node port and cluster IP services, to which the external load balancer routes or automatically created.
+4.	ExternalName/ExternalIP: maps the service to the content of external fields by written a C name records within a value.
+
+
+Daemonset: it ensures that all nodes are running exactly one copy of a pod 
+ Daemonset will even create the pod on new nodes that are added to the cluster
+Daemonset tells Kubernetes to make sure there is one instance of the pod on nodes in your cluster
+
+ReplicaSet:
+ A replicaset is a set of pod templates that describes a set of pod replicas. It uses a template that describes what each pod must contain.
+The replicaset ensures that a specified number of pod replicas are running at any time.
+We want to replicate containers (and thereby applications) for several reasons, including:
+#1 - Reliability: By having multiple versions of an application, you prevent problems if one or more fails. This is particularly true if the system replaces any containers that fail.
+#2 - Load balancing: Having multiple versions of a container enables you to easily send traffic to different instances to prevent overloading of a single instance or node. This is something that Kubernetes does out of the box, making it extremely convenient.
+#3 - Scaling: When load does become too much for the number of existing instances, Kubernetes enables you to
+easily scale up your application, adding additional instances as needed.
+However, a Deployment is a higher-level concept that manages ReplicaSets and provides declarative updates to
+Pods along with a lot of other useful features.
+Therefore, its recommended using Deployments instead of directly using ReplicaSets, unless you require custom update orchestration or don’t require updates at all.
+Deployment: 
+A deployment is an object in Kubernetes that lets you manage a set of identical pods. Without a deployment, you’d need to create, update, and delete a bunch of pods manually.
+With a deployment, you declare a single object in a YAML file.
+This object is responsible for creating the pods, making sure they stay up to date, and ensuring there are enough of them running.
+Rollingupdate:
+Kubernetes deployments rollout pod version updates with a rolling update strategy.
+This strategy aims to prevent application downtime by keeping atleast some instance up and running at any point intime while performing the updates.
+Old pods are only shutdown after new pods of the new deployment version have started up and became ready to handle the traffic.
+MaxSurge: it indicates maximum number of pods need to be created before terminating the old pods.
+maxUnavailable: this indicates number of unavailable pods during rolling updates
+
+Taint and toleration: these are work together to ensure that pods are not scheduled onto inappropriate nodes.
+ One or more taints are applied to a node, this marks that the node should not accept any pods that do not tolerate the taints.
+Tolerations are applied to pods and allow the pods to schedule onto nodes with matching taints.
+
+Taint and toleration are only meant to restrict the nodes to accept certain pods.
+Taint and toleration doesn’t tell a pod to go to a particular node, instead it tell the node to accept pods with certain tolerations.
+Node Selector:
+NodeSelector is the simplest recommended form of node selection constraint. NodeSelector is a
+field of PodSpec. It specifies a map of key-value pairs. For the pod to be eligible to run on a node, the
+node must have each of the indicated key-value pairs as labels (it can have additional labels as well).
+Step #1 - First label the node using kubectl command
+#kubectl label nodes = #kubectl label nodes node2.example.com size=large
+Step #2: Now create a pod definition, specifying the node selector for the pod.
+There are limitations. You cannot use the condition that "place the pod on node either "large" or
+"medium" but not "small".
+You cannot use multiple checks. For that we use "affinity" and "anti-affinity" 
+Affinity:
+For a variety of reasons a service or container should only run on a specific type of hardware. Maybe
+one machine has faster disk speeds, another is running a conflicting application, and yet another is
+part of your bare-metal cluster.
+A “Hard rule” – Node Affinity Required During Scheduling Ignored during Execution, which means
+the rule is “required during scheduling” but has no effect on an already-running Pod. 
+A “Soft rule” – NodeAffinity Preferred during Scheduling Ignored during Execution, which means the
+rule is “preferred during scheduling” but likewise has no effect on an already-running pod.
+Together, these rules are called NodeAffinity because they indicate a Pod’s “attraction” to certain
+Nodes
