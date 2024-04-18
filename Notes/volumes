@@ -1,0 +1,18 @@
+Persistent volume:
+Piece of storage in the cluster that has been provisioned by the administrator or dynamically provisioned using storage classes. It is a resource in the cluster just like a node in the cluster resource.
+PVs are volumes plugins like volumes, but have a life cycle independent of any individual pod that uses the PV.
+K8s persistent volume has the following attributes:
+1.	It is provisioned either dynamically or by an administrator.
+2.	Created with a particular filesystem.
+3.	Has a particular size.
+4.	Has identifying characteristics such as volume ids and a name.
+Persistent volume claim (PVC):
+PVC is a request for storage by a user it is similar to Pod. Pods consume node resources and PVCs consume PV resources.  Pods can request specific level of requests (CPU & Memory). Claims can request specific size and access modes (example: they can be mounted once read/write or many times read/write).
+
+
+Persistent volume claim describes the amount and characteristics of the storage required by the pod, finds any matching persistent volumes and claims this.
+K8s persistent volume remains available outside of the pod life cycle this means that the volume will remain even after the pod is deleted. It is available to claim by another pod if required and the data is retained.
+
+Config map: intend for non-sensitive data/ config file and environment variables or a great way to create customized service for generic container
+
+  
