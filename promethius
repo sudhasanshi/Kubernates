@@ -1,0 +1,11 @@
+ promethius server collects Kubernetes metrics using Kube-state-metrics, Node-exporter, and Kubernetes control plane metrics.
+  1. kube-state-metrics: This component gathers metrics about the state of various Kubernetes objects such as pods, deployments, nodes, services, and more. 
+  2. Node-exporter: Node-exporter collects system-level metrics from Kubernetes nodes, including CPU usage, memory usage, disk I/O, network traffic, and other hardware and operating system statistics. 
+  3. Kubernetes control plane metrics: Prometheus can also scrape metrics from the Kubernetes control plane components, such as the API server, scheduler, controller manager, and etcd.
+   Prometheus follows a pull-based model
+   Prometheus provides a powerful query language called PromQL, which allows users to perform ad-hoc queries and create custom dashboards for visualization.
+  By collecting metrics from these sources, Prometheus enables comprehensive monitoring and observability of Kubernetes clusters
+
+ grafana 
+   Grafana is an open-source analytics and monitoring platform that allows users to query, visualize, alert on, and understand metrics collected from various data sources, including Prometheus
+   Grafana dashboards can be customized to display various K8s metrics, such as resource utilization (CPU, memory), network traffic, pod health, and cluster performance.
