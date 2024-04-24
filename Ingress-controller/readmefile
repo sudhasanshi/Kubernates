@@ -29,5 +29,9 @@ for each application we can mention path
    add volumes in deployment file
     http://a7a27810bdb62474b95cfaf0aeaee7eb-2060807531.ap-south-1.elb.amazonaws.com/grafana
 
-   
+we have configured the Nginx Ingress Controller,
+the rules defined in Ingress resources.
+rules for routing external HTTP and HTTPS traffic to services inside the Kubernetes cluster.
+The Ingress controller typically uses a load balancer to distribute incoming traffic across multiple pods of the targeted services based on path
+
 
